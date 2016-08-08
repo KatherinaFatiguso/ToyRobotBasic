@@ -14,4 +14,8 @@ RSpec.describe "ToyRobot" do
   specify 'that ToyRobot f is set to EAST' do
     expect(subject.f).to eq('EAST')
   end
+
+  it { is_expected.to validate_presence_of(:x) }
 end
+
+#Note, to run this RSpec test, in terminal, type $ rspec spec/toy_robot_spec.rb

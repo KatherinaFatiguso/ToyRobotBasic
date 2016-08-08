@@ -1,5 +1,8 @@
 class ToyRobot
+  validates_presence_of :x
+
   attr_accessor :x, :y, :f, :movements
+
 
   def initialize
     self.x = 0
