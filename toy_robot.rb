@@ -6,11 +6,11 @@ class ToyRobot
   def initialize
     @x = 0
     @y = 0
-    @f = :east
+    @f = :north
   end
 
   def place(x,y)
-    raise InvalidPositionError.new("Invalid Position, #{x}, #{y}") if (x<0 || y<0)
+    raise InvalidPositionError.new("Invalid Position, #{x}, #{y}") if (x<0 || y<0 || x>4 || y>4)
     @x=x
     @y=y
   end
