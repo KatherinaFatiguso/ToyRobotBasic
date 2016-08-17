@@ -3,6 +3,13 @@
 ToyRobot is a project to practice and hone my coding skills, especially focusing on TDD.
 
 =========
+
+# Run
+* Use rvm, .ruby-version used to specify version
+* Run the following ````rspec spec````
+
+## OVERVIEW
+
 This ToyRobot app is based on the exercise found in RedWolf GitHub Repository:
 https://github.com/DiscoverRedwolf/toyrobot.git
 
