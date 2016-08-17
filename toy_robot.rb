@@ -9,11 +9,11 @@ class ToyRobot
     @facing = :north
   end
 
-  def place(x,y,f)
-    raise InvalidPositionError.new("Invalid Position, #{x}, #{y}, #{f}") if (x<0 || y<0 || x>4 || y>4)
+  def place(x,y,facing)
+    raise InvalidPositionError.new("Invalid Position, #{x}, #{y}, #{facing}") if (x<0 || y<0 || x>4 || y>4)
     @x=x
     @y=y
-    @facing=f
+    @facing=facing
   end
 end
 
