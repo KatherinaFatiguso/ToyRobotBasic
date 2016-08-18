@@ -10,7 +10,7 @@ class ToyRobot
   end
 
   def place(x,y,facing)
-    raise InvalidPositionError.new("Invalid Position, #{x}, #{y}, #{facing}") if (x<0 || y<0 || x>4 || y>4)
+    raise InvalidPositionError.new("Invalid Position, #{x}, #{y}, #{facing}") if !(x.between?(0,4)) || !(y.between?(0,4))
     @x=x
     @y=y
     @facing=facing
