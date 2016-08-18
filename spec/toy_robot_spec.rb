@@ -12,24 +12,32 @@ RSpec.describe "ToyRobot" do
       expect(subject.y).to eq(0)
     end
 
-    specify 'that ToyRobot f is set to EAST' do
-      expect(subject.f).to eq(:east)
+    specify 'that ToyRobot facing is set to NORTH' do
+      expect(subject.facing).to eq(:north)
     end
   end
 
   describe 'place' do
     subject{ ToyRobot.new }
-    specify 'When x is less than zero it should raise an exception' do
-      expect { subject.place(-1,0) }.to raise_error(InvalidPositionError, "Invalid Position, -1, 0")
+    specify 'When x is less than zero, it expect to raise an exception' do
+      expect { subject.place(-1,0,:north) }.to raise_error(InvalidPositionError, "Invalid Position, -1, 0, north")
     end
-    specify 'When y is less than zero it should raise an exception' do
-      expect { subject.place(0,-1) }.to raise_error(InvalidPositionError, "Invalid Position, 0, -1")
+    specify 'When y is less than zero, it expect to raise an exception' do
+      expect { subject.place(0,-1,:north) }.to raise_error(InvalidPositionError, "Invalid Position, 0, -1, north")
     end
-    specify 'When valid it should move Robot to position' do
-      subject.place(3,4)
+    specify 'When x is more than four, it expect to raise an exception' do
+      expect { subject.place(5,0,:north) }.to raise_error(InvalidPositionError, "Invalid Position, 5, 0, north")
+    end
+    specify 'When y is more than four, it expect to raise an exception' do
+      expect { subject.place(0,5,:north) }.to raise_error(InvalidPositionError, "Invalid Position, 0, 5, north")
+    end
+    specify 'When valid it should move Robot to position and update facing' do
+      subject.place(3,4,:east)
       subject.x.should eql(3)
       subject.y.should eql(4)
+      subject.facing.should eql(:east)
     end
+
   end
 
 end
