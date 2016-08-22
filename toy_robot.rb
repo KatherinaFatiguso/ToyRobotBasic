@@ -15,7 +15,7 @@ class ToyRobot
     @x = x
     @y = y
     @facing = facing
-    @movements.replace(["PLACE #{x}, #{y}, #{facing.to_s}"])
+    @movements.replace(["PLACE #{@x}, #{@y}, #{@facing.to_s.upcase}"])
   end
 
   def move
@@ -37,10 +37,17 @@ class ToyRobot
 end
 
 
-# robot = ToyRobot.new
-# puts robot.x
-# puts robot.y
-# puts robot.facing
+robot = ToyRobot.new
+robot.place(1,2,:north)
+puts robot.x
+puts robot.y
+puts robot.facing
+robot.move
+p robot.movements
+# robot.movements.each do |movement|
+#   puts movement
+# end
+
 #
 # robot.move
 # puts robot.x

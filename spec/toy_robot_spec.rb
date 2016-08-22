@@ -60,6 +60,22 @@ RSpec.describe "ToyRobot" do
         expect(robot.y).to eq(4)
         expect(robot.facing).to eq(:north)
       end
+      it 'will not move from its current position' do
+        robot.place(0, 0, :south)
+        robot.move
+        expect(robot.x).to eq(0)
+        expect(robot.y).to eq(0)
+        expect(robot.facing).to eq(:south)
+      end
+    end
+
+    context 'When a Robot is moved to a valid place' do
+      robot = ToyRobot.new
+      it 'will add string MOVE to the last place in the movements array' do
+        robot.place(1, 1, :east)
+        robot.move
+        expect(robot.movements.last).to eq('MOVE')
+      end
     end
   end ## end of describe 'move'
 
