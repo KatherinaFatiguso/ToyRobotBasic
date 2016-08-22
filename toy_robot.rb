@@ -7,6 +7,7 @@ class ToyRobot
     @x = 0
     @y = 0
     @facing = :north
+    @movements = []
   end
 
   def place(x,y,facing)
@@ -14,17 +15,22 @@ class ToyRobot
     @x = x
     @y = y
     @facing = facing
+    @movements.replace(["PLACE #{x}, #{y}, #{facing.to_s}"])
   end
 
   def move
     if (@facing == :north) && (@y < 4)
       @y =+ 1
+      @movements << "MOVE"
     elsif (@facing == :south) && (@y > 0)
       @y =- 1
+      @movements << "MOVE"
     elsif (@facing == :east) && (@x < 4)
       @x =+ 1
+      @movements << "MOVE"
     elsif (@facing == :west) && (@x > 0)
       @x =- 1
+      @movements << "MOVE"
     end
   end
 

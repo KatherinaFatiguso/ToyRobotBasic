@@ -42,11 +42,22 @@ RSpec.describe "ToyRobot" do
 
   describe 'move' do
     context 'When the Robot is at Origin (0, 0, :north)' do
-      it 'will move to 0, 1, :north' do
+      it 'it will move one position forward' do
         robot = ToyRobot.new
         robot.move
         expect(robot.x).to eq(0)
         expect(robot.y).to eq(1)
+        expect(robot.facing).to eq(:north)
+      end
+    end
+
+    context 'When the Robot is at the edge of the table' do
+      robot = ToyRobot.new
+      it 'will not move from its current position' do
+        robot.place(0, 4, :north)
+        robot.move
+        expect(robot.x).to eq(0)
+        expect(robot.y).to eq(4)
         expect(robot.facing).to eq(:north)
       end
     end
