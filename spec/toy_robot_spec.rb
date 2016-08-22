@@ -33,48 +33,46 @@ RSpec.describe "ToyRobot" do
     end
     specify 'When valid it should move Robot to position and update facing' do
       subject.place(3,4,:west)
-      subject.x.should eql(3)
-      subject.y.should eql(4)
-      subject.facing.should eql(:west)
+      expect(subject.x).to eq(3)
+      expect(subject.y).to eq(4)
+      expect(subject.facing).to eq(:west)
     end
 
   end ## end of describe 'place'
 
   describe 'move' do
+    subject { ToyRobot.new }
     context 'When the Robot is at Origin (0, 0, :north)' do
       it 'it will move one position forward' do
-        robot = ToyRobot.new
-        robot.move
-        expect(robot.x).to eq(0)
-        expect(robot.y).to eq(1)
-        expect(robot.facing).to eq(:north)
+        subject.move
+        expect(subject.x).to eq(0)
+        expect(subject.y).to eq(1)
+        expect(subject.facing).to eq(:north)
       end
     end
 
     context 'When the Robot is at the edge of the table' do
-      robot = ToyRobot.new
       it 'will not move from its current position' do
-        robot.place(0, 4, :north)
-        robot.move
-        expect(robot.x).to eq(0)
-        expect(robot.y).to eq(4)
-        expect(robot.facing).to eq(:north)
+        subject.place(0, 4, :north)
+        subject.move
+        expect(subject.x).to eq(0)
+        expect(subject.y).to eq(4)
+        expect(subject.facing).to eq(:north)
       end
       it 'will not move from its current position' do
-        robot.place(0, 0, :south)
-        robot.move
-        expect(robot.x).to eq(0)
-        expect(robot.y).to eq(0)
-        expect(robot.facing).to eq(:south)
+        subject.place(0, 0, :south)
+        subject.move
+        expect(subject.x).to eq(0)
+        expect(subject.y).to eq(0)
+        expect(subject.facing).to eq(:south)
       end
     end
 
     context 'When a Robot is moved to a valid place' do
-      robot = ToyRobot.new
       it 'will add string MOVE to the last place in the movements array' do
-        robot.place(1, 1, :east)
-        robot.move
-        expect(robot.movements.last).to eq('MOVE')
+        subject.place(1, 1, :east)
+        subject.move
+        expect(subject.movements.last).to eq('MOVE')
       end
     end
   end ## end of describe 'move'
