@@ -35,24 +35,3 @@ class ToyRobot
   end
 
 end
-
-
-robot = ToyRobot.new
-robot.place(1,2,:north)
-puts robot.x
-puts robot.y
-puts robot.facing
-robot.move
-p robot.movements
-# robot.movements.each do |movement|
-#   puts movement
-# end
-
-#
-# robot.move
-# puts robot.x
-# puts robot.y
-# puts robot.facing
-
-
-# Note: to run this, in terminal type: $ ruby ToyRobot.rb
