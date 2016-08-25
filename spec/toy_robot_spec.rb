@@ -76,9 +76,34 @@ RSpec.describe "ToyRobot" do
     end
 
     context 'When the Robot is at valid move position' do
+      robot = ToyRobot.new
       it 'will move one position forward' do
-        robot = ToyRobot.new
         robot.place(3,3,:north)
+        robot.move
+        expect(robot.x).to eq(3)
+        expect(robot.y).to eq(4)
+        expect(robot.facing).to eq(:north)
+      end
+      it 'will move one position forward' do
+        robot.place(3,3,:south)
+        robot.move
+        expect(robot.x).to eq(3)
+        expect(robot.y).to eq(2)
+        expect(robot.facing).to eq(:south)
+      end
+      it 'will move one position forward' do
+        robot.place(3,3,:east)
+        robot.move
+        expect(robot.x).to eq(4)
+        expect(robot.y).to eq(3)
+        expect(robot.facing).to eq(:east)
+      end
+    end
+
+    context 'When the Robot is not at valid move position' do
+      it 'will not move one position forward' do
+        robot = ToyRobot.new
+        robot.place(3,4,:north)
         robot.move
         expect(robot.x).to eq(3)
         expect(robot.y).to eq(4)

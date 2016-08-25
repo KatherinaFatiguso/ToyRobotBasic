@@ -23,7 +23,12 @@ class ToyRobot
   def move
     if (@facing == :north) && (valid_place(@x,(@y + 1)))
       @y += 1
-      @movements << "MOVE"
+    elsif (@facing == :south) && (valid_place(@x,(@y - 1)))
+      @y -= 1
+    elsif (@facing == :east) && (valid_place((@x + 1), @y))
+      @x += 1
+    elsif (@facing == :west) && (valid_place((@x - 1), @y))
+      @x -= 1
     end
   end
 
