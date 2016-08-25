@@ -55,20 +55,16 @@ RSpec.describe "ToyRobot" do
   end ## end of describe 'place'
 
   describe 'move' do
-    # subject { ToyRobot.new }
-    # robot = ToyRobot.new
-    #
-    # context 'When the Robot is at Origin (0, 0, :north)' do
-    #   it 'will move one position forward' do
-    #     # robot = ToyRobot.new
-    #     robot.move
-    #     expect(robot.x).to eq(0)
-    #     expect(robot.y).to eq(1)
-    #     expect(robot.facing).to eq(:north)
-    #   end
-    # end
+    context 'When the Robot is at Origin (0, 0, :north)' do
+      it 'will move one position forward' do
+        robot = ToyRobot.new
+        robot.move
+        expect(robot.x).to eq(0)
+        expect(robot.y).to eq(1)
+        expect(robot.facing).to eq(:north)
+      end
+    end
 
-    # subject { ToyRobot.new }
     context 'When the Robot is at valid move position' do
       it 'will move one position forward' do
         robot = ToyRobot.new
