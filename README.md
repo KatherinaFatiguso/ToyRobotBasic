@@ -6,7 +6,7 @@ ToyRobot is a project to practice and hone my coding skills, especially focusing
 
 # Run
 * Use rvm, .ruby-version used to specify version
-* Run the following ````rspec spec````
+* Run the following ````rspec spec```` 
 
 ## OVERVIEW
 

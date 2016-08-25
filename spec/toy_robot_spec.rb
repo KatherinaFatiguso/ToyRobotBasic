@@ -33,21 +33,46 @@ RSpec.describe "ToyRobot" do
     end
     specify 'When valid it should move Robot to position and update facing' do
       subject.place(3,4,:west)
-      subject.x.should eql(3)
-      subject.y.should eql(4)
-      subject.facing.should eql(:west)
+      expect(subject.x).to eq(3)
+      expect(subject.y).to eq(4)
+      expect(subject.facing).to eq(:west)
     end
 
   end ## end of describe 'place'
 
   describe 'move' do
+    subject { ToyRobot.new }
     context 'When the Robot is at Origin (0, 0, :north)' do
-      it 'will move to 0, 1, :north' do
-        robot = ToyRobot.new
-        robot.move
-        expect(robot.x).to eq(0)
-        expect(robot.y).to eq(1)
-        expect(robot.facing).to eq(:north)
+      it 'it will move one position forward' do
+        subject.move
+        expect(subject.x).to eq(0)
+        expect(subject.y).to eq(1)
+        expect(subject.facing).to eq(:north)
+      end
+    end
+
+    context 'When the Robot is at the edge of the table' do
+      it 'will not move from its current position' do
+        subject.place(0, 4, :north)
+        subject.move
+        expect(subject.x).to eq(0)
+        expect(subject.y).to eq(4)
+        expect(subject.facing).to eq(:north)
+      end
+      it 'will not move from its current position' do
+        subject.place(0, 0, :south)
+        subject.move
+        expect(subject.x).to eq(0)
+        expect(subject.y).to eq(0)
+        expect(subject.facing).to eq(:south)
+      end
+    end
+
+    context 'When a Robot is moved to a valid place' do
+      it 'will add string MOVE to the last place in the movements array' do
+        subject.place(1, 1, :east)
+        subject.move
+        expect(subject.movements.last).to eq('MOVE')
       end
     end
   end ## end of describe 'move'
