@@ -57,6 +57,11 @@ RSpec.describe "ToyRobot" do
       subject.place(1,2,:north)
       expect(subject.movements.length).to eq(1)
     end
+
+    specify 'When given valid x and y, the 1st item in array should have the place coordinate and facing' do
+      subject.place(1,2,:north)
+      expect(subject.movements[0]).to eq("PLACE 1, 2, NORTH")
+    end
   end ## end of describe 'place'
 
   describe 'move' do
