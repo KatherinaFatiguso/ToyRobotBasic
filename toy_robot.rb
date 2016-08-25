@@ -10,12 +10,18 @@ class ToyRobot
     @movements = []
   end
 
+
+
   def place(x,y,facing)
     raise InvalidPositionError.new("Invalid Position, #{x}, #{y}, #{facing}") if !(x.between?(0,4)) || !(y.between?(0,4))
     @x = x
     @y = y
     @facing = facing
     @movements.replace(["PLACE #{@x}, #{@y}, #{@facing.to_s.upcase}"])
+  end
+
+  def valid_place(x,y)
+    (x.between?(0,4)) && (y.between?(0,4))
   end
 
   def move

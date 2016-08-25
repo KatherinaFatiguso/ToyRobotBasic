@@ -17,6 +17,22 @@ RSpec.describe "ToyRobot" do
     end
   end
 
+  describe 'valid_place' do
+    subject { ToyRobot.new }
+    specify 'that when x value is between 0 and 4 and y value is between 0 and 4, it will return true' do
+      x = 0
+      y = 0
+      expect(subject.valid_place(x,y)).to be true
+    end
+
+    specify 'that when x value is not between 0 and 4 and y value is not between 0 and 4, it will return false' do
+      x = -1
+      y = 5
+      expect(subject.valid_place(x,y)).to be false
+    end
+  end
+
+
   describe 'place' do
     subject{ ToyRobot.new }
     specify 'When x is less than zero, it expect to raise an exception' do
@@ -37,42 +53,17 @@ RSpec.describe "ToyRobot" do
       expect(subject.y).to eq(4)
       expect(subject.facing).to eq(:west)
     end
-
   end ## end of describe 'place'
+
 
   describe 'move' do
     subject { ToyRobot.new }
     context 'When the Robot is at Origin (0, 0, :north)' do
-      it 'it will move one position forward' do
+      it 'will move one position forward' do
         subject.move
         expect(subject.x).to eq(0)
         expect(subject.y).to eq(1)
         expect(subject.facing).to eq(:north)
-      end
-    end
-
-    context 'When the Robot is at the edge of the table' do
-      it 'will not move from its current position' do
-        subject.place(0, 4, :north)
-        subject.move
-        expect(subject.x).to eq(0)
-        expect(subject.y).to eq(4)
-        expect(subject.facing).to eq(:north)
-      end
-      it 'will not move from its current position' do
-        subject.place(0, 0, :south)
-        subject.move
-        expect(subject.x).to eq(0)
-        expect(subject.y).to eq(0)
-        expect(subject.facing).to eq(:south)
-      end
-    end
-
-    context 'When a Robot is moved to a valid place' do
-      it 'will add string MOVE to the last place in the movements array' do
-        subject.place(1, 1, :east)
-        subject.move
-        expect(subject.movements.last).to eq('MOVE')
       end
     end
   end ## end of describe 'move'

@@ -16,3 +16,4 @@ p robot.movements
 # puts robot.x
 # puts robot.y
 # puts robot.facing
+puts robot.valid_place(0,0)
