@@ -30,6 +30,20 @@ RSpec.describe "ToyRobot" do
       y = 5
       expect(subject.valid_place(x,y)).to be false
     end
+  end ## end of describe 'valid_place'
+
+  describe 'replace_movements' do
+
+    context 'When new position is given' do
+      robot = ToyRobot.new
+      robot.replace_movements(3,4,:south)
+      it 'should replace any values with one item in the array' do
+        expect(robot.movements.length).to eq 1
+      end
+      it 'should have the PLACE position in the first item in the array' do
+        expect(robot.movements[0]).to eq "PLACE 3, 4, SOUTH"
+      end
+    end
   end
 
 
@@ -47,7 +61,7 @@ RSpec.describe "ToyRobot" do
     specify 'When y is more than four, it expect to raise an exception' do
       expect { subject.place(0,5,:north) }.to raise_error(InvalidPositionError, "Invalid Position, 0, 5, north")
     end
-    specify 'When valid it should move Robot to position and update facing' do
+    specify 'When given valid x and y, it should move Robot to position and update facing' do
       subject.place(3,4,:west)
       expect(subject.x).to eq(3)
       expect(subject.y).to eq(4)
