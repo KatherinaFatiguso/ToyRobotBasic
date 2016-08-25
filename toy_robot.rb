@@ -10,41 +10,25 @@ class ToyRobot
     @movements = []
   end
 
-
-
   def place(x,y,facing)
-    if valid_place(x,y)
-      @x = x
-      @y = y
-      @facing = facing
-      replace_movements(x,y,facing)
-    else
+    if !valid_place(x,y)
       raise InvalidPositionError.new("Invalid Position, #{x}, #{y}, #{facing}")
     end
+    @x = x
+    @y = y
+    @facing = facing
+    @movements.replace(["PLACE #{x}, #{y}, #{facing.to_s.upcase}"])
   end
 
-  def replace_movements(x,y,facing)
-    @movements.replace(["PLACE #{x}, #{y}, #{facing.to_s.upcase}"])
+  def move
+    if (@facing == :north) && (valid_place(@x,(@y + 1)))
+      @y += 1
+      @movements << "MOVE"
+    end
   end
 
   def valid_place(x,y)
     (x.between?(0,4)) && (y.between?(0,4))
-  end
-
-  def move
-    if (@facing == :north) && (@y < 4)
-      @y =+ 1
-      @movements << "MOVE"
-    elsif (@facing == :south) && (@y > 0)
-      @y =- 1
-      @movements << "MOVE"
-    elsif (@facing == :east) && (@x < 4)
-      @x =+ 1
-      @movements << "MOVE"
-    elsif (@facing == :west) && (@x > 0)
-      @x =- 1
-      @movements << "MOVE"
-    end
   end
 
 end

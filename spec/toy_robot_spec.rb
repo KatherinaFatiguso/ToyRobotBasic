@@ -32,21 +32,6 @@ RSpec.describe "ToyRobot" do
     end
   end ## end of describe 'valid_place'
 
-  describe 'replace_movements' do
-
-    context 'When new position is given' do
-      robot = ToyRobot.new
-      robot.replace_movements(3,4,:south)
-      it 'should replace any values with one item in the array' do
-        expect(robot.movements.length).to eq 1
-      end
-      it 'should have the PLACE position in the first item in the array' do
-        expect(robot.movements[0]).to eq "PLACE 3, 4, SOUTH"
-      end
-    end
-  end
-
-
   describe 'place' do
     subject{ ToyRobot.new }
     specify 'When x is less than zero, it expect to raise an exception' do
@@ -69,15 +54,29 @@ RSpec.describe "ToyRobot" do
     end
   end ## end of describe 'place'
 
-
   describe 'move' do
-    subject { ToyRobot.new }
-    context 'When the Robot is at Origin (0, 0, :north)' do
+    # subject { ToyRobot.new }
+    # robot = ToyRobot.new
+    #
+    # context 'When the Robot is at Origin (0, 0, :north)' do
+    #   it 'will move one position forward' do
+    #     # robot = ToyRobot.new
+    #     robot.move
+    #     expect(robot.x).to eq(0)
+    #     expect(robot.y).to eq(1)
+    #     expect(robot.facing).to eq(:north)
+    #   end
+    # end
+
+    # subject { ToyRobot.new }
+    context 'When the Robot is at valid move position' do
       it 'will move one position forward' do
-        subject.move
-        expect(subject.x).to eq(0)
-        expect(subject.y).to eq(1)
-        expect(subject.facing).to eq(:north)
+        robot = ToyRobot.new
+        robot.place(3,3,:north)
+        robot.move
+        expect(robot.x).to eq(3)
+        expect(robot.y).to eq(4)
+        expect(robot.facing).to eq(:north)
       end
     end
   end ## end of describe 'move'
