@@ -52,6 +52,11 @@ RSpec.describe "ToyRobot" do
       expect(subject.y).to eq(4)
       expect(subject.facing).to eq(:west)
     end
+
+    specify 'When given valid x and y, the array @movements should have only 1 item' do
+      subject.place(1,2,:north)
+      expect(subject.movements.length).to eq(1)
+    end
   end ## end of describe 'place'
 
   describe 'move' do
