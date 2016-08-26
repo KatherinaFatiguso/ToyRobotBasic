@@ -17,21 +17,6 @@ RSpec.describe "ToyRobot" do
     end
   end
 
-  describe 'valid_place' do
-    subject { ToyRobot.new }
-    specify 'that when x value is between 0 and 4 and y value is between 0 and 4, it will return true' do
-      x = 0
-      y = 0
-      expect(subject.valid_place(x,y)).to be true
-    end
-
-    specify 'that when x value is not between 0 and 4 and y value is not between 0 and 4, it will return false' do
-      x = -1
-      y = 5
-      expect(subject.valid_place(x,y)).to be false
-    end
-  end ## end of describe 'valid_place'
-
   describe 'place' do
     subject{ ToyRobot.new }
     specify 'When x is less than zero, it expect to raise an exception' do
@@ -65,51 +50,31 @@ RSpec.describe "ToyRobot" do
   end ## end of describe 'place'
 
   describe 'move' do
-    context 'When the Robot is at Origin (0, 0, :north)' do
-      it 'will move one position forward' do
-        robot = ToyRobot.new
-        robot.move
-        expect(robot.x).to eq(0)
-        expect(robot.y).to eq(1)
-        expect(robot.facing).to eq(:north)
-      end
+    subject { ToyRobot.new }
+    it 'When facing north will move one position north' do
+      subject.place(1, 1, :north)
+      subject.move
+      expect(subject.y).to eq(2)
     end
 
-    context 'When the Robot is at valid move position' do
-      robot = ToyRobot.new
-      it 'will move one position forward' do
-        robot.place(3,3,:north)
-        robot.move
-        expect(robot.x).to eq(3)
-        expect(robot.y).to eq(4)
-        expect(robot.facing).to eq(:north)
-      end
-      it 'will move one position forward' do
-        robot.place(3,3,:south)
-        robot.move
-        expect(robot.x).to eq(3)
-        expect(robot.y).to eq(2)
-        expect(robot.facing).to eq(:south)
-      end
-      it 'will move one position forward' do
-        robot.place(3,3,:east)
-        robot.move
-        expect(robot.x).to eq(4)
-        expect(robot.y).to eq(3)
-        expect(robot.facing).to eq(:east)
-      end
+    it 'When facing south will move one position south' do
+      subject.place(1, 1, :south)
+      subject.move
+      expect(subject.y).to eq(0)
     end
 
-    context 'When the Robot is not at valid move position' do
-      it 'will not move one position forward' do
-        robot = ToyRobot.new
-        robot.place(3,4,:north)
-        robot.move
-        expect(robot.x).to eq(3)
-        expect(robot.y).to eq(4)
-        expect(robot.facing).to eq(:north)
-      end
+    it 'When facing east will move one position east' do
+      subject.place(1, 1, :east)
+      subject.move
+      expect(subject.x).to eq(2)
     end
+
+    it 'When facing west will move one position west' do
+      subject.place(1, 1, :west)
+      subject.move
+      expect(subject.x).to eq(0)
+    end
+
   end ## end of describe 'move'
 
 end
