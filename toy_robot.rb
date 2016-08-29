@@ -32,6 +32,8 @@ class ToyRobot
     end
   end
 
+  private
+  
   def valid_place(x,y)
     (x.between?(0,4)) && (y.between?(0,4))
   end
