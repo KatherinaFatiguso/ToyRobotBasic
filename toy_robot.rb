@@ -44,6 +44,20 @@ class ToyRobot
 
   end
 
+  def left
+    case @facing
+    when :north
+      @facing = :west
+    when :west
+      @facing = :south
+    when :south
+      @facing = :east
+    when :east
+      @facing = :north
+    end
+    @movements << "MOVE"
+  end
+
   private
 
   def valid_place(x,y)

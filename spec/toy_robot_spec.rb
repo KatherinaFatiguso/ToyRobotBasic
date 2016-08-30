@@ -77,4 +77,28 @@ RSpec.describe "ToyRobot" do
 
   end ## end of describe 'move'
 
+  describe 'left' do
+    subject { ToyRobot.new }
+    it 'When facing north will face west when turn left' do
+      subject.place(1, 1, :north)
+      subject.left
+      expect(subject.facing).to eq(:west)
+    end
+    it 'When facing west will face south when turn left' do
+      subject.place(1, 1, :west)
+      subject.left
+      expect(subject.facing).to eq(:south)
+    end
+    it 'When facing south will face east when turn left' do
+      subject.place(1, 1, :south)
+      subject.left
+      expect(subject.facing).to eq(:east)
+    end
+    it 'When facing east will face north when turn left' do
+      subject.place(1, 1, :east)
+      subject.left
+      expect(subject.facing).to eq(:north)
+    end
+  end # end of describe left
+
 end
