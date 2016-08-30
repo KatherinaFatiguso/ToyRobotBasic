@@ -21,19 +21,31 @@ class ToyRobot
   end
 
   def move
-    if (@facing == :north) && (valid_place(@x,(@y + 1)))
-      @y += 1
-    elsif (@facing == :south) && (valid_place(@x,(@y - 1)))
-      @y -= 1
-    elsif (@facing == :east) && (valid_place((@x + 1), @y))
-      @x += 1
-    elsif (@facing == :west) && (valid_place((@x - 1), @y))
-      @x -= 1
+    x = @x # assigning object variables to temporary variables
+    y = @y
+
+    case @facing
+    when :north
+      y += 1
+    when :south
+      y += -1
+    when :east
+      x += 1
+    when :west
+      x += -1
     end
+    if !valid_place(x,y)
+      raise InvalidPositionError.new("Invalid Position, #{x}, #{y}, #{facing}")
+    else
+      @x = x
+      @y = y
+      @movements << "MOVE"
+    end
+
   end
 
   private
-  
+
   def valid_place(x,y)
     (x.between?(0,4)) && (y.between?(0,4))
   end
