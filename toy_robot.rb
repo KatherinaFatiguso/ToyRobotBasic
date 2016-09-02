@@ -1,4 +1,6 @@
 require_relative "invalid_position_error"
+require 'rubygems'
+require 'pg'
 
 class ToyRobot
   attr_reader :x, :y, :facing, :movements
