@@ -72,6 +72,10 @@ class ToyRobot
     @movements << "MOVE"
   end
 
+  def report
+    "REPORT Output: #{@x},#{@y},#{@facing.to_s.upcase}"
+  end
+
   private
 
   def valid_place(x,y)

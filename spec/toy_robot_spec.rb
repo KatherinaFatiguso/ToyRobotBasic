@@ -125,4 +125,11 @@ RSpec.describe "ToyRobot" do
     end
   end # end of describe right
 
+  describe 'report' do
+    subject { ToyRobot.new }
+    it 'Will announce the x, y and facing of the robot' do
+      expect(subject.report).to eq("REPORT Output: 0,0,NORTH")
+    end
+  end # end of describe report
+
 end
