@@ -1,7 +1,8 @@
 require_relative "toy_robot"
 
 
-robot = ToyRobot.create!(x: 0, y: 0, facing: :north)
+robot = ToyRobot.new
+puts robot.x
 
 
 # robot = ToyRobot.new
