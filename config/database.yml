@@ -1,0 +1,5 @@
+development:
+  adapter: postgresql
+  database: toyrobotdb_development
+  pool: 5
+  timeout: 5000

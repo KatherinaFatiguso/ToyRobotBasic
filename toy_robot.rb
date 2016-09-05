@@ -1,8 +1,13 @@
 require_relative "invalid_position_error"
-require 'rubygems'
+require 'active_record'
 require 'pg'
+require 'logger'
 
-class ToyRobot
+ActiveRecord::Base.logger = Logger.new('debug.log')
+configuration = YAML::load(IO.read('config/database.yml'))
+ActiveRecord::Base.establish_connection(configuration['development'])
+
+class ToyRobot < ActiveRecord::Base
   attr_reader :x, :y, :facing, :movements
 
   def initialize
