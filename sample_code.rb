@@ -1,7 +1,7 @@
 require_relative "toy_robot"
 
 
-robot = ToyRobot.new
+robot = ToyRobot.create
 puts robot.x
 
 
@@ -18,6 +18,6 @@ puts robot.x
 
 #
 # robot.move
-puts robot.x
-puts robot.y
-puts robot.facing
+# puts robot.x
+# puts robot.y
+# puts robot.facing

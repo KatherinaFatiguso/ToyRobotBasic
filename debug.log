@@ -9,3 +9,72 @@ D, [2016-09-05T15:07:59.338174 #27690] DEBUG -- :   [1m[35m (8.0ms)[0m  CREAT
 D, [2016-09-05T15:07:59.343327 #27690] DEBUG -- :   [1m[36m (2.6ms)[0m  [1mCREATE  INDEX  "index_movements_on_toy_robots_id" ON "movements"  ("toy_robots_id")[0m
 D, [2016-09-05T15:07:59.393856 #27690] DEBUG -- :   [1m[35mSQL (7.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "1"]]
 D, [2016-09-05T15:07:59.400674 #27690] DEBUG -- :   [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+D, [2016-09-05T22:37:33.969339 #31615] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (20.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2016-09-05T22:42:35.652529 #31739] DEBUG -- :   [1m[36m (66.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+D, [2016-09-05T22:42:35.693844 #31739] DEBUG -- :   [1m[35m (7.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+D, [2016-09-05T22:42:35.698664 #31739] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-05T22:42:35.717027 #31739]  INFO -- : Migrating to Schema (1)
+D, [2016-09-05T22:42:35.722381 #31739] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2016-09-05T22:42:35.789693 #31739] DEBUG -- :   [1m[36m (64.5ms)[0m  [1mCREATE TABLE "toy_robots" ("id" serial primary key, "x" character varying, "y" character varying, "facing" character varying) [0m
+D, [2016-09-05T22:42:35.803960 #31739] DEBUG -- :   [1m[35m (12.0ms)[0m  CREATE TABLE "movements" ("id" serial primary key, "name" character varying, "toy_robots_id" integer) 
+D, [2016-09-05T22:42:35.809632 #31739] DEBUG -- :   [1m[36m (3.1ms)[0m  [1mCREATE  INDEX  "index_movements_on_toy_robots_id" ON "movements"  ("toy_robots_id")[0m
+D, [2016-09-05T22:42:35.874532 #31739] DEBUG -- :   [1m[35mSQL (17.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "1"]]
+D, [2016-09-05T22:42:35.880768 #31739] DEBUG -- :   [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+D, [2016-09-06T11:13:27.561470 #1761] DEBUG -- :   [1m[36m (37.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+D, [2016-09-06T11:13:27.613865 #1761] DEBUG -- :   [1m[35m (7.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+D, [2016-09-06T11:13:27.616998 #1761] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-06T11:13:27.628086 #1761]  INFO -- : Migrating to Schema (1)
+D, [2016-09-06T11:13:27.633082 #1761] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2016-09-06T11:13:27.675656 #1761] DEBUG -- :   [1m[36m (40.5ms)[0m  [1mCREATE TABLE "toy_robots" ("id" serial primary key, "x" character varying, "y" character varying, "facing" character varying) [0m
+D, [2016-09-06T11:13:27.685668 #1761] DEBUG -- :   [1m[35m (7.7ms)[0m  CREATE TABLE "movements" ("id" serial primary key, "name" character varying, "toy_robots_id" integer) 
+D, [2016-09-06T11:13:27.691460 #1761] DEBUG -- :   [1m[36m (3.5ms)[0m  [1mCREATE  INDEX  "index_movements_on_toy_robots_id" ON "movements"  ("toy_robots_id")[0m
+D, [2016-09-06T11:13:27.729311 #1761] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "1"]]
+D, [2016-09-06T11:13:27.735505 #1761] DEBUG -- :   [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+D, [2016-09-06T11:18:48.619270 #1958] DEBUG -- :   [1m[36m (16.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+D, [2016-09-06T11:18:48.643982 #1958] DEBUG -- :   [1m[35m (13.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+D, [2016-09-06T11:18:48.646329 #1958] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-06T11:18:48.652043 #1958]  INFO -- : Migrating to Schema (1)
+D, [2016-09-06T11:18:48.656445 #1958] DEBUG -- :   [1m[35m (0.1ms)[0m  BEGIN
+D, [2016-09-06T11:18:48.673544 #1958] DEBUG -- :   [1m[36m (15.1ms)[0m  [1mCREATE TABLE "toy_robots" ("id" serial primary key, "x" character varying, "y" character varying, "facing" character varying) [0m
+D, [2016-09-06T11:18:48.683531 #1958] DEBUG -- :   [1m[35m (8.5ms)[0m  CREATE TABLE "movements" ("id" serial primary key, "name" character varying, "toy_robots_id" integer) 
+D, [2016-09-06T11:18:48.689674 #1958] DEBUG -- :   [1m[36m (3.1ms)[0m  [1mCREATE  INDEX  "index_movements_on_toy_robots_id" ON "movements"  ("toy_robots_id")[0m
+D, [2016-09-06T11:18:48.724279 #1958] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "1"]]
+D, [2016-09-06T11:18:48.730514 #1958] DEBUG -- :   [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+D, [2016-09-06T11:19:34.034865 #1981] DEBUG -- :   [1m[36m (15.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+D, [2016-09-06T11:19:34.063707 #1981] DEBUG -- :   [1m[35m (11.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+D, [2016-09-06T11:19:34.068148 #1981] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-06T11:19:34.076390 #1981]  INFO -- : Migrating to Schema (1)
+D, [2016-09-06T11:19:34.081618 #1981] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2016-09-06T11:19:34.104279 #1981] DEBUG -- :   [1m[36m (20.3ms)[0m  [1mCREATE TABLE "toy_robots" ("id" serial primary key, "x" character varying, "y" character varying, "facing" character varying) [0m
+D, [2016-09-06T11:19:34.114082 #1981] DEBUG -- :   [1m[35m (8.2ms)[0m  CREATE TABLE "movements" ("id" serial primary key, "name" character varying, "toy_robots_id" integer) 
+D, [2016-09-06T11:19:34.124979 #1981] DEBUG -- :   [1m[36m (3.5ms)[0m  [1mCREATE  INDEX  "index_movements_on_toy_robots_id" ON "movements"  ("toy_robots_id")[0m
+D, [2016-09-06T11:19:34.147209 #1981] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "1"]]
+D, [2016-09-06T11:19:34.153556 #1981] DEBUG -- :   [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+D, [2016-09-06T11:54:12.842256 #2806] DEBUG -- :   [1m[36m (47.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+D, [2016-09-06T11:54:12.905040 #2806] DEBUG -- :   [1m[35m (20.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+D, [2016-09-06T11:54:12.908140 #2806] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-06T11:54:12.916492 #2806]  INFO -- : Migrating to Schema (1)
+D, [2016-09-06T11:54:12.919836 #2806] DEBUG -- :   [1m[35m (0.1ms)[0m  BEGIN
+D, [2016-09-06T11:54:12.956073 #2806] DEBUG -- :   [1m[36m (34.0ms)[0m  [1mCREATE TABLE "toy_robots" ("id" serial primary key, "x" character varying, "y" character varying, "facing" character varying) [0m
+D, [2016-09-06T11:54:12.967206 #2806] DEBUG -- :   [1m[35m (8.9ms)[0m  CREATE TABLE "movements" ("id" serial primary key, "name" character varying, "toy_robot_id" integer) 
+D, [2016-09-06T11:54:12.972343 #2806] DEBUG -- :   [1m[36m (2.8ms)[0m  [1mCREATE  INDEX  "index_movements_on_toy_robot_id" ON "movements"  ("toy_robot_id")[0m
+D, [2016-09-06T11:54:13.004826 #2806] DEBUG -- :   [1m[35m (27.2ms)[0m  ALTER TABLE "movements" ADD CONSTRAINT "fk_rails_0ebe00731b"
+FOREIGN KEY ("toy_robot_id")
+  REFERENCES "toy_robots" ("id")
+
+D, [2016-09-06T11:54:13.025197 #2806] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "1"]]
+D, [2016-09-06T11:54:13.031324 #2806] DEBUG -- :   [1m[35m (5.7ms)[0m  COMMIT
+D, [2016-09-06T11:57:45.912112 #2894] DEBUG -- :   [1m[36m (14.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+D, [2016-09-06T11:57:45.932916 #2894] DEBUG -- :   [1m[35m (9.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+D, [2016-09-06T11:57:45.935488 #2894] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-06T11:57:45.943315 #2894]  INFO -- : Migrating to Schema (1)
+D, [2016-09-06T11:57:45.946829 #2894] DEBUG -- :   [1m[35m (0.1ms)[0m  BEGIN
+D, [2016-09-06T11:57:45.969033 #2894] DEBUG -- :   [1m[36m (19.1ms)[0m  [1mCREATE TABLE "toy_robots" ("id" serial primary key, "x" character varying, "y" character varying, "facing" character varying) [0m
+D, [2016-09-06T11:57:45.981636 #2894] DEBUG -- :   [1m[35m (11.1ms)[0m  CREATE TABLE "movements" ("id" serial primary key, "name" character varying, "toy_robot_id" integer) 
+D, [2016-09-06T11:57:45.990545 #2894] DEBUG -- :   [1m[36m (4.2ms)[0m  [1mCREATE  INDEX  "index_movements_on_toy_robot_id" ON "movements"  ("toy_robot_id")[0m
+D, [2016-09-06T11:57:45.997768 #2894] DEBUG -- :   [1m[35m (2.0ms)[0m  ALTER TABLE "movements" ADD CONSTRAINT "fk_rails_0ebe00731b"
+FOREIGN KEY ("toy_robot_id")
+  REFERENCES "toy_robots" ("id")
+
+D, [2016-09-06T11:57:46.019877 #2894] DEBUG -- :   [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "1"]]
+D, [2016-09-06T11:57:46.022696 #2894] DEBUG -- :   [1m[35m (2.3ms)[0m  COMMIT

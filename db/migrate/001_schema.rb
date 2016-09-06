@@ -8,7 +8,7 @@ class Schema < ActiveRecord::Migration
 
     create_table :movements, force: true do |t|
       t.string :name
-      t.belongs_to :toy_robots, index: true
+      t.references :toy_robot, index: true, foreign_key: true
     end
   end
 
