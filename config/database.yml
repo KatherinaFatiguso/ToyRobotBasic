@@ -1,5 +1,12 @@
-development:
+default: &default
   adapter: postgresql
-  database: toyrobotdb_development
+  encoding: utf8
   pool: 5
   timeout: 5000
+  username: katherinafatiguso
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: toyrobotdb_development

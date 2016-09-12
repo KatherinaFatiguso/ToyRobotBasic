@@ -1,19 +1,18 @@
 require_relative 'toy_robot'
+require 'active_record'
 
-task :default =>[:dbsetup, :migrate, :test]
+task :default => [:dropdb, :createdb, :migrate]
+desc "Drop database"
+task :dropdb do
+  ActiveRecord::Tasks::DatabaseTasks.drop_all
+end
 
-desc "Drop and create database"
-task :dbsetup do
-  `dropdb toyrobotdb_development; true`
+desc "Create database"
+task :createdb do
   `createdb toyrobotdb_development`
 end
 
-desc "Run migrations"
+desc "Migrate database"
 task :migrate do
-  ActiveRecord::Migrator.migrate('db/migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil)
-end
-
-desc "Run tests"
-task :test do
-  ruby "spec/toy_robot_spec.rb"
+  ActiveRecord::Migrator.migrate("db/migrate/")
 end

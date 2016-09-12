@@ -15,6 +15,7 @@ class ToyRobot < ActiveRecord::Base
     @y = 0
     @facing = :north
     @movements = []
+    # self.create!(x: @x, y: @y, facing: @facing)
   end
 
   def place(x,y,facing)
