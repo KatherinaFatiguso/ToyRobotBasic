@@ -1,6 +1,11 @@
 require_relative "invalid_position_error"
+require 'active_record'
+require 'pg'
+require 'logger'
+require 'yaml'
 
-class ToyRobot
+
+class ToyRobot < ActiveRecord::Base
   attr_reader :x, :y, :facing, :movements
 
   def initialize
@@ -8,6 +13,7 @@ class ToyRobot
     @y = 0
     @facing = :north
     @movements = []
+    # self.create!(x: @x, y: @y, facing: @facing)
   end
 
   def place(x,y,facing)
